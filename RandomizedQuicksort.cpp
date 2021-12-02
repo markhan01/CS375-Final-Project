@@ -1,4 +1,5 @@
 #include <vector>
+#include <stdlib.h>
 
 int partition(std::vector<int>& a, int left, int right) {
   int pivot = a[left + rand() & (right - left + 1)];
