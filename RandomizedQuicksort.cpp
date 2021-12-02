@@ -29,7 +29,3 @@ void randomized_quicksort(std::vector<int>& a, int left, int right) {
     randomized_quicksort(a, pivot+1, right);
   }
 }
-
-int main() {
-  return 0;
-}
