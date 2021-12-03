@@ -1,36 +1,37 @@
 #include "Lomuto.h"
-#include <iostream>
 
 Lomuto::Lomuto() {}
 
-void Lomuto::quicksort(vector<int>& vec, int p, int r) {
+//return pointer to start of array
+void Lomuto::quicksort(vector<int>& arr, int p, int r) {
     if (p < r) {
-        int q = lomutoPartition(vec, p, r);
-        quicksort(vec, p, q - 1);
-        quicksort(vec, q + 1, r);
+        int q = lomutoPartition(arr, p, r);
+        quicksort(arr, p, q - 1);
+        quicksort(arr, q + 1, r);
     }
 
 }
 
-int Lomuto::lomutoPartition(vector<int>& vec, int p, int r) {
-    int pivot = vec[r];
+//Takes the last element as the pivot
+//j traverses the whole array
+//p through i - 1 (inclusive) are less than pivot
+//i throgh j (inclusive) are equal to or greater than pivot
+//O(n^2) when array is sorted
+int Lomuto::lomutoPartition(vector<int>& arr, int p, int r) {
+    int pivot = arr[r];
     int i = (p - 1);
 
-    for (int j = p; j <= r - 1; j++){
-        if (vec[j] <= pivot) {
+    for (int j = p; j <= r - 1; j ++){
+        if (arr[j] <= pivot) {
             i ++;
-            swap(vec[i], vec[j]);
-            numSwaps++;
+            //swap arr[i] and arr[j]
+            swap(arr[i], arr[j]);
         }
     }
-    swap(vec[i+1], vec[r]);
-    numSwaps++;
+
+    //swap arr[i+1] and arr[r]
+    swap(arr[i+1], arr[r]);
+
     return (i + 1);
 
-}
-
-int Lomuto::getNumSwaps() {
-    int temp = numSwaps;
-    numSwaps = 0;
-    return temp;
 }

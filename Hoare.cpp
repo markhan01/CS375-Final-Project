@@ -2,7 +2,7 @@
 
 Hoare::Hoare() {}
 
-void Hoare::quicksort(int arr[], int p, int r) {
+void Hoare::quicksort(vector<int>& arr, int p, int r) {
 	if (p < r) {
 		int q = hoarePartition(arr, p, r);
 		quicksort(arr, p, q);
@@ -10,7 +10,7 @@ void Hoare::quicksort(int arr[], int p, int r) {
 	}
 }
 
-int Hoare::hoarePartition(int arr[], int p, int r) {
+int Hoare::hoarePartition(vector<int>& arr, int p, int r) {
 	int x = arr[p];
 	int i = p - 1;
 	int j = r + 1;
@@ -25,9 +25,7 @@ int Hoare::hoarePartition(int arr[], int p, int r) {
 		} while (arr[i] < x);
 		
 		if (i < j) {
-			int temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
+			swap(arr[i], arr[j]);
 		} else {
 			return j;
 		}
