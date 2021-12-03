@@ -1,11 +1,13 @@
+#include <vector>
 using namespace std;
 
 class Lomuto {
     public:
         Lomuto();
-        void quicksort(int arr[], int p, int r);
-        int lomutoPartition(int arr[], int p, int r);   
+        void quicksort(vector<int>& vec, int p, int r);
+        int lomutoPartition(vector<int>& vec, int p, int r); 
+        int getNumSwaps();  
 
     private:
-
+        int numSwaps;
 };
