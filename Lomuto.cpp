@@ -1,5 +1,7 @@
 #include "Lomuto.h"
 
+extern int lomuto_swap_count;
+
 Lomuto::Lomuto() {}
 
 //return pointer to start of array
@@ -26,11 +28,13 @@ int Lomuto::lomutoPartition(vector<int>& arr, int p, int r) {
             i ++;
             //swap arr[i] and arr[j]
             swap(arr[i], arr[j]);
+            lomuto_swap_count++;
         }
     }
 
     //swap arr[i+1] and arr[r]
     swap(arr[i+1], arr[r]);
+	lomuto_swap_count++;
 
     return (i + 1);
 

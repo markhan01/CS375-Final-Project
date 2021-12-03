@@ -8,6 +8,10 @@
 #include <vector>
 using namespace std;
 
+int hoare_swap_count = 0;
+int lomuto_swap_count = 0;
+int randomized_swap_count = 0;
+
 int main(int argc, char *argv[]) {
     string input_text, line;
     input_text = argv[1];
@@ -48,24 +52,13 @@ int main(int argc, char *argv[]) {
 		duration = endTime - startTime;
 		auto randomized_runtime = chrono::duration_cast<chrono::milliseconds>(duration).count();
 		
-		/*
-		for (int i = 0; i < hoare_array.size(); i++) {
-			cout << hoare_array[i] << endl;
-		}
-		
-		cout << endl;
-		for (int i = 0; i < lomuto_array.size(); i++) {
-			cout << lomuto_array[i] << endl;
-		}
-		cout << endl;
-		for (int i = 0; i < randomized_array.size(); i++) {
-			cout << randomized_array[i] << endl;
-		}
-		*/
-		
+		cout << endl << input_text << endl;
 		cout << "Hoare Runtime: " << hoare_runtime << endl;
 		cout << "Lomuto Runtime: " << lomuto_runtime << endl;
 		cout << "Randomized Runtime: " << randomized_runtime << endl;
-		
+		cout << "-------------------------------------" << endl;
+		cout << "Hoare Swap Count: " << hoare_swap_count << endl;
+		cout << "Lomuto Swap Count: " << lomuto_swap_count << endl;
+		cout << "Randomized Swap Count: " << randomized_swap_count << endl << endl;
     }
 }

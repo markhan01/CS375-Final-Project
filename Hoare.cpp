@@ -1,5 +1,7 @@
 #include "Hoare.h"
 
+extern int hoare_swap_count;
+
 Hoare::Hoare() {}
 
 void Hoare::quicksort(vector<int>& arr, int p, int r) {
@@ -26,6 +28,7 @@ int Hoare::hoarePartition(vector<int>& arr, int p, int r) {
 		
 		if (i < j) {
 			swap(arr[i], arr[j]);
+			hoare_swap_count++;
 		} else {
 			return j;
 		}
