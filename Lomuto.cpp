@@ -3,44 +3,33 @@
 
 Lomuto::Lomuto() {}
 
-//return pointer to start of array
-void Lomuto::quicksort(int arr[], int p, int r) {
+void Lomuto::quicksort(vector<int>& vec, int p, int r) {
     if (p < r) {
-        int q = lomutoPartition(arr, p, r);
-        for (int i = 0; i < 9; i ++)
-            cout << arr[i] << " ";
-        cout << "\n" << endl;
-        quicksort(arr, p, q - 1);
-        quicksort(arr, q + 1, r);
+        int q = lomutoPartition(vec, p, r);
+        quicksort(vec, p, q - 1);
+        quicksort(vec, q + 1, r);
     }
 
 }
 
-//Takes the last element as the pivot
-//j traverses the whole array
-//p through i - 1 (inclusive) are less than pivot
-//i throgh j (inclusive) are equal to or greater than pivot
-//O(n^2) when array is sorted
-int Lomuto::lomutoPartition(int arr[], int p, int r) {
-    int pivot = arr[r];
+int Lomuto::lomutoPartition(vector<int>& vec, int p, int r) {
+    int pivot = vec[r];
     int i = (p - 1);
 
-    for (int j = p; j <= r - 1; j ++){
-        if (arr[j] <= pivot) {
+    for (int j = p; j <= r - 1; j++){
+        if (vec[j] <= pivot) {
             i ++;
-            //swap arr[i] and arr[j]
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            swap(vec[i], vec[j]);
+            numSwaps++;
         }
     }
-
-    //swap arr[i+1] and arr[r]
-    int temp = arr[i+1];
-    arr[i+1] = arr[r];
-    arr[r] = temp;
-
+    swap(vec[i+1], vec[r]);
+    numSwaps++;
     return (i + 1);
 
 }
 
+int Lomuto::getNumSwaps() {
+    return numSwaps;
+    numSwaps = 0;
+}
