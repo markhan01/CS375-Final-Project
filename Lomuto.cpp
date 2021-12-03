@@ -30,6 +30,7 @@ int Lomuto::lomutoPartition(vector<int>& vec, int p, int r) {
 }
 
 int Lomuto::getNumSwaps() {
-    return numSwaps;
+    int temp = numSwaps;
     numSwaps = 0;
+    return temp;
 }
