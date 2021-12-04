@@ -1,5 +1,5 @@
 # CS375-Final-Project
-'make' compiles the program and creates the executable 'Driver'.
+'make' compiles the program and creates the executable 'quicksort'.
 
 To run the program,
 
