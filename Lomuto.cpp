@@ -4,7 +4,6 @@ extern int lomuto_swap_count;
 
 Lomuto::Lomuto() {}
 
-//return pointer to start of array
 void Lomuto::quicksort(vector<int>& arr, int p, int r) {
     if (p < r) {
         int q = lomutoPartition(arr, p, r);
@@ -14,11 +13,6 @@ void Lomuto::quicksort(vector<int>& arr, int p, int r) {
 
 }
 
-//Takes the last element as the pivot
-//j traverses the whole array
-//p through i - 1 (inclusive) are less than pivot
-//i throgh j (inclusive) are equal to or greater than pivot
-//O(n^2) when array is sorted
 int Lomuto::lomutoPartition(vector<int>& arr, int p, int r) {
     int pivot = arr[r];
     int i = (p - 1);
@@ -26,13 +20,11 @@ int Lomuto::lomutoPartition(vector<int>& arr, int p, int r) {
     for (int j = p; j <= r - 1; j ++){
         if (arr[j] <= pivot) {
             i ++;
-            //swap arr[i] and arr[j]
             swap(arr[i], arr[j]);
             lomuto_swap_count++;
         }
     }
 
-    //swap arr[i+1] and arr[r]
     swap(arr[i+1], arr[r]);
 	lomuto_swap_count++;
 

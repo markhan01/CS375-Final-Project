@@ -61,4 +61,5 @@ int main(int argc, char *argv[]) {
 		cout << "Lomuto Swap Count: " << lomuto_swap_count << endl;
 		cout << "Randomized Swap Count: " << randomized_swap_count << endl << endl;
     }
+    return 0;
 }
