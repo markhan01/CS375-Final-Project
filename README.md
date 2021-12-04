@@ -3,7 +3,7 @@
 
 To run the program,
 
-./Driver example.txt
+./quicksort example.txt
 
 Replace example.txt with any of the given .txt files in the directory (Increasing.txt, Random.txt, etc.).
 
