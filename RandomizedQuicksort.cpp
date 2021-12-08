@@ -2,7 +2,9 @@
 
 extern int randomized_swap_count;
 
-RandomizedQuicksort::RandomizedQuicksort() {}
+RandomizedQuicksort::RandomizedQuicksort() {
+  srand(time(NULL));
+}
 
 int RandomizedQuicksort::partition(vector<int>& arr, int left, int right) {
 	int random = left + rand() % (right - left);

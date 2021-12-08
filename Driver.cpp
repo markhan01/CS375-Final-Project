@@ -38,19 +38,19 @@ int main(int argc, char *argv[]) {
 	 	hoare.quicksort(hoare_array, 0, hoare_array.size() - 1);
 		auto endTime = chrono::high_resolution_clock::now();
 		auto duration = endTime - startTime;
-		auto hoare_runtime = chrono::duration_cast<chrono::milliseconds>(duration).count();
+		auto hoare_runtime = chrono::duration_cast<chrono::microseconds>(duration).count();
 		
 		startTime = chrono::high_resolution_clock::now();
 		lomuto.quicksort(lomuto_array, 0, lomuto_array.size() - 1);
 		endTime = chrono::high_resolution_clock::now();
 		duration = endTime - startTime;
-		auto lomuto_runtime = chrono::duration_cast<chrono::milliseconds>(duration).count();
+		auto lomuto_runtime = chrono::duration_cast<chrono::microseconds>(duration).count();
 		
 		startTime = chrono::high_resolution_clock::now();
 		randomized.quicksort(randomized_array, 0, randomized_array.size() - 1);
 		endTime = chrono::high_resolution_clock::now();
 		duration = endTime - startTime;
-		auto randomized_runtime = chrono::duration_cast<chrono::milliseconds>(duration).count();
+		auto randomized_runtime = chrono::duration_cast<chrono::microseconds>(duration).count();
 		
 		cout << endl << input_text << endl;
 		cout << "Hoare Runtime: " << hoare_runtime << endl;
